@@ -183,6 +183,10 @@ public class Game
             case LOOK:
                 look();
                 break;
+                
+            case EAT:
+                eat();
+                break;
         }
         return wantToQuit;
     }
@@ -248,5 +252,10 @@ public class Game
     private void look()
     {
         System.out.println(currentRoom.getLongDescription());
+    }
+    
+    private void eat()
+    {
+        System.out.println("You have eaten a cookie.");
     }
 }
