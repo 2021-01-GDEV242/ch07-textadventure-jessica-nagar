@@ -38,25 +38,25 @@ public class Game
                     dep2Hallway, dep2Elevator, cafe, dep1FloorClosed, dep2FloorClosed, end;
       
         // create the rooms
-        start = new Room(" at the common area on the floor.");
-        dep1Recep = new Room(" at the I.T. Department's reception desk. The door locks behind you. You can no longer go through this door.");
-        dep1Cubicals = new Room(" at the I.T. cubicals.");
+        start = new Room(" at the common area on the floor");
+        dep1Recep = new Room(" at the I.T. Department's reception desk. The door locks behind you. You can no longer go through this door");
+        dep1Cubicals = new Room(" at the I.T. cubicals");
         dep1Con = new Room(" at the I.T. conference room.");
-        dep1Exec = new Room(" in the Executive Director's office of the I.T. Department.");
-        dep1Admin = new Room(" in the Admin's office of the I.T. Department.");
-        dep1Hallway = new Room(" in the I.T. Department's hallway.");
-        dep1Elevator = new Room(" in the elevator connected to the I.T. Department's wing.");
-        dep2Recep = new Room (" at the Human Resources Department's reception desk. The door locks behind you. You can no longer go through this door.");
-        dep2Cubicals = new Room (" at the HR cubicals.");
-        dep2Con = new Room (" at the HR conference room.");
-        dep2Exec = new Room (" in the Executive Director's office of the HR Department.");
-        dep2Admin = new Room (" in the Admin's office of the HR Department.");
-        dep2Hallway = new Room (" in the HR Department's hallway.");
-        dep2Elevator = new Room (" in the elevator connected to the HR Department's wing.");
-        cafe = new Room (" in the cafeteria.");
-        dep1FloorClosed = new Room (" on a closed floor. You must go back.");
-        dep2FloorClosed = new Room (" on a closed floor. You must go back.");
-        end = new Room (" at the exit. You have successfully escaped! Congradulations!");
+        dep1Exec = new Room(" in the Executive Director's office of the I.T. Department");
+        dep1Admin = new Room(" in the Admin's office of the I.T. Department");
+        dep1Hallway = new Room(" in the I.T. Department's hallway");
+        dep1Elevator = new Room(" in the elevator connected to the I.T. Department's wing");
+        dep2Recep = new Room (" at the Human Resources Department's reception desk. The door locks behind you. You can no longer go through this door");
+        dep2Cubicals = new Room (" at the HR cubicals");
+        dep2Con = new Room (" at the HR conference room");
+        dep2Exec = new Room (" in the Executive Director's office of the HR Department");
+        dep2Admin = new Room (" in the Admin's office of the HR Department");
+        dep2Hallway = new Room (" in the HR Department's hallway");
+        dep2Elevator = new Room (" in the elevator connected to the HR Department's wing");
+        cafe = new Room (" in the cafeteria");
+        dep1FloorClosed = new Room (" on a closed floor. You must go back");
+        dep2FloorClosed = new Room (" on a closed floor. You must go back");
+        end = new Room (" at the exit. You have successfully escaped! Congradulations");
         
         // initialise room exits
         start.setExit("east", dep1Recep);
@@ -201,7 +201,7 @@ public class Game
     private void printHelp() 
     {
         System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("around at the office.");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
