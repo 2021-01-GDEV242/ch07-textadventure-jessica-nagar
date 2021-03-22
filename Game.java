@@ -34,30 +34,89 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room start, dep1Recep, dep1Cubicals, dep1Con, dep1Exec, dep1Admin, dep1Hallway, dep1Elevator, dep2Recep, dep2Cubicals, dep2Con, dep2Exec, dep2Admin,
+                    dep2Hallway, dep2Elevator, cafe, dep1FloorClosed, dep2FloorClosed, end;
       
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        start = new Room(" at the common area on the floor.");
+        dep1Recep = new Room(" at the I.T. Department's reception desk. The door locks behind you. You can no longer go through this door.");
+        dep1Cubicals = new Room(" at the I.T. cubicals.");
+        dep1Con = new Room(" at the I.T. conference room.");
+        dep1Exec = new Room(" in the Executive Director's office of the I.T. Department.");
+        dep1Admin = new Room(" in the Admin's office of the I.T. Department.");
+        dep1Hallway = new Room(" in the I.T. Department's hallway.");
+        dep1Elevator = new Room(" in the elevator connected to the I.T. Department's wing.");
+        dep2Recep = new Room (" at the Human Resources Department's reception desk. The door locks behind you. You can no longer go through this door.");
+        dep2Cubicals = new Room (" at the HR cubicals.");
+        dep2Con = new Room (" at the HR conference room.");
+        dep2Exec = new Room (" in the Executive Director's office of the HR Department.");
+        dep2Admin = new Room (" in the Admin's office of the HR Department.");
+        dep2Hallway = new Room (" in the HR Department's hallway.");
+        dep2Elevator = new Room (" in the elevator connected to the HR Department's wing.");
+        cafe = new Room (" in the cafeteria.");
+        dep1FloorClosed = new Room (" on a closed floor. You must go back.");
+        dep2FloorClosed = new Room (" on a closed floor. You must go back.");
+        end = new Room (" at the exit. You have successfully escaped! Congradulations!");
         
         // initialise room exits
-        outside.setExit("east", theater);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        start.setExit("east", dep1Recep);
+        start.setExit("south", dep2Recep);
+        
+        dep1Recep.setExit("south", dep1Cubicals);
+        
+        dep1Cubicals.setExit("north", dep1Recep);
+        dep1Cubicals.setExit("east", dep1Con);
+        dep1Cubicals.setExit("south", cafe);
+        
+        dep1Con.setExit("north", dep1Exec);
+        dep1Con.setExit("east", dep1Admin);
+        dep1Con.setExit("south", dep1Hallway);
+        dep1Con.setExit("west", dep1Cubicals);
+        
+        dep1Exec.setExit("south", dep1Con);
+        
+        dep1Admin.setExit("west", dep1Con);
+        
+        dep1Hallway.setExit("north", dep1Con);
+        dep1Hallway.setExit("east", dep1Elevator);
+        dep1Hallway.setExit("west", cafe);
+        
+        dep1Elevator.setExit("up", dep1FloorClosed);
+        dep1Elevator.setExit("down", end);
+        
+        dep2Recep.setExit("east", dep2Cubicals);
+        
+        dep2Cubicals.setExit("east", cafe);
+        dep2Cubicals.setExit("south", dep2Con);
+        dep2Cubicals.setExit("west", dep2Recep);
+        
+        dep2Con.setExit("north", dep2Cubicals);
+        dep2Con.setExit("east", dep2Hallway);
+        dep2Con.setExit("south", dep2Exec);
+        dep2Con.setExit("west", dep2Admin);
+        
+        dep2Exec.setExit("north", dep2Con);
+        
+        dep2Admin.setExit("east", dep2Con);
+        
+        dep2Hallway.setExit("north", cafe);
+        dep2Hallway.setExit("south", dep2Elevator);
+        dep2Hallway.setExit("west", dep2Con);
+        
+        dep2Elevator.setExit("up", dep2FloorClosed);
+        dep2Elevator.setExit("down", end);
+        
+        cafe.setExit("north", dep1Cubicals);
+        cafe.setExit("east", dep1Hallway);
+        cafe.setExit("south", dep2Hallway);
+        cafe.setExit("west", dep2Cubicals);
+        
+        dep1FloorClosed.setExit("down", dep1Elevator);
+        
+        dep2FloorClosed.setExit("down", dep2Elevator);
 
-        theater.setExit("west", outside);
-
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;  // start game outside
+        
+        currentRoom = start;  // start game outside
     }
 
     /**
