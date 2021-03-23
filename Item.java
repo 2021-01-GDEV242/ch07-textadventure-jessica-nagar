@@ -17,18 +17,24 @@ public class Item
     public Item()
     {
         // initialise instance variables
-       
+        itemDescription = " ";
+        itemWeight = 0;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * 
      */
-    public String itemDescription(String itemDescription)
+    public Item(String description, int weight)
     {
-        // put your code here
-        
+        itemDescription = description;
+        itemWeight = weight;
+    }
+    
+    public String getItemDescription()
+    {
+        String itemString = "Item Description: ";
+        itemString += this.itemDescription +"\n";
+        itemString += "Item Weight: "+this.itemWeight;
+        return itemString;
     }
 }
