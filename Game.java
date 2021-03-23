@@ -19,6 +19,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Room prevRoom;
         
     /**
      * Create the game and initialise its internal map.
@@ -206,6 +207,7 @@ public class Game
 
         
         currentRoom = start;  // start game outside
+        prevRoom = null;
     }
     
     /**
@@ -333,6 +335,7 @@ public class Game
             System.out.println("There is no door!");
         }
         else {
+            prevRoom = currentRoom;
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
@@ -366,7 +369,8 @@ public class Game
     
     private void back()
     {
-        
+        currentRoom = prevRoom;
+        System.out.println(currentRoom.getLongDescription());
     }
         
 }
