@@ -1,26 +1,28 @@
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  * Class Room - a room in an adventure game.
  *
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
+ * This class is part of the "Work Escape" application. 
+ * "Work Escape" is a very simple, text based adventure game.  
  *
  * A "Room" represents one location in the scenery of the game.  It is 
  * connected to other rooms via exits.  For each existing exit, the room 
  * stores a reference to the neighboring room.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author  Jessica Nagar
+ * @version 2021.03.22
  */
 
 public class Room 
 {
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
-
+    private ArrayList<Item> roomItems;
+    
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
@@ -31,6 +33,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<>();
+        roomItems = new ArrayList<Item>();
     }
 
     /**
@@ -60,7 +63,22 @@ public class Room
      */
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return "You are " + description + ".\n" + 
+                getItemsInRoom() + "\n"
+                + getExitString();
+    }
+    
+    /**
+     * Return list of items in the room
+     */
+    public String getItemsInRoom()
+    {
+        String returnItems = "Items in the rooms are: \n";
+        for(Item item : roomItems)
+        {
+            returnItems+= item.getItemDescription()+"\n";
+        }
+        return returnItems;
     }
 
     /**
@@ -87,6 +105,14 @@ public class Room
     public Room getExit(String direction) 
     {
         return exits.get(direction);
+    }
+    
+    /**
+     * add item to the room
+     */
+    public void addItem(Item item)
+    {
+        roomItems.add(item);
     }
 }
 
