@@ -37,7 +37,29 @@ public class Game
         Room start, dep1Recep, dep1Cubicals, dep1Con, dep1Exec, dep1Admin, dep1Hallway, dep1Elevator, dep2Recep, dep2Cubicals, dep2Con, dep2Exec, dep2Admin,
                     dep2Hallway, dep2Elevator, cafe, dep1FloorClosed, dep2FloorClosed, end;
       
-        Item startItem, dep1RecepItem, dep1CubicalsItem, dep1ConItem, dep1ExecItem, dep1AdminItem, dep1HallwayItem, dep1ElevatorItem, dep2RecepItem, dep2CubicalsItem,
+        Item startItems[] = {new Item("Nothing", 0)};
+        Item dep1RecepItems[] = {new Item("Welcome Sign", 0), new Item("Bell", 0), new Item("Plant", 0)};
+        Item dep1CubicalsItems[] = {new Item("Files", 10), new Item("Phone", 15)};
+        Item dep1ConItems[] = {new Item("Projector", 50), new Item("Phone", 15)};
+        Item dep1ExecItems[] = {new Item("Laptop", 100), new Item("Calendar", 25), new Item("Phone", 15)};
+        Item dep1AdminItems[] = {new Item("Laptop", 100), new Item("Calendar", 25), new Item("Phone", 15)};
+        Item dep1HallwayItems[] = {new Item("Painting", 0), new Item("Plant", 0)};
+        Item dep1ElevatorItems[] = {new Item("Buttons", 0), new Item ("Light", 0)};
+        Item dep2RecepItems[] = {new Item("Welcome Sign", 0), new Item("Bell", 0), new Item("Plant", 0)};
+        Item dep2CubicalsItems[] = {new Item("Files", 10), new Item("Phone", 15)};
+        Item dep2ConItems[] = {new Item("Projector", 50), new Item("Phone", 15)};
+        Item dep2ExecItems[] = {new Item("Laptop", 100), new Item("Calendar", 25), new Item("Phone", 15)};
+        Item dep2AdminItems[] = {new Item("Laptop", 100), new Item("Calendar", 25), new Item("Phone", 15)};
+        Item dep2HallwayItems[] = {new Item("Painting", 0), new Item("Plant", 0)};
+        Item dep2ElevatorItems[] = {new Item("Buttons", 0), new Item ("Light", 0)};
+        Item cafeItems[] = {new Item("Donut", 25), new Item("Pizza", 75), new Item("Sandwich", 50)};
+        Item dep1FloorClosedItems[] = {new Item("Closed Sign", 0), new Item("Plant", 0)};
+        Item dep2FloorClosedItems[] = {new Item("Closed Sign", 0), new Item("Plant", 0)};
+        Item endItems[] = {new Item("Nothing", 0)};
+                    
+        /**  8.20 - Single item in each room
+         * 
+         * Item startItem, dep1RecepItem, dep1CubicalsItem, dep1ConItem, dep1ExecItem, dep1AdminItem, dep1HallwayItem, dep1ElevatorItem, dep2RecepItem, dep2CubicalsItem,
                     dep2ConItem, dep2ExecItem, dep2AdminItem, dep2HallwayItem, dep2ElevatorItem, cafeItem, dep1FloorClosedItem, dep2FloorClosedItem, endItem;
         
         startItem = new Item();
@@ -59,8 +81,8 @@ public class Game
         dep1FloorClosedItem = new Item("Closed Sign: Floor is closed", 0);
         dep2FloorClosedItem = new Item("Closed Sign: Floor is closed", 0);
         endItem = new Item();
-                    
-        // create the rooms
+         
+        
         start = new Room(" at the common area on the floor", startItem);
         dep1Recep = new Room(" at the I.T. Department's reception desk. The door locks behind you. You can no longer go through this door", dep1RecepItem);
         dep1Cubicals = new Room(" at the I.T. cubicals", dep1CubicalsItem);
@@ -80,6 +102,50 @@ public class Game
         dep1FloorClosed = new Room (" on a closed floor. You must go back", dep1FloorClosedItem);
         dep2FloorClosed = new Room (" on a closed floor. You must go back", dep2FloorClosedItem);
         end = new Room (" at the exit. You have successfully escaped! Congradulations", endItem);
+        */  
+        
+        // create the rooms
+        start = new Room(" at the common area on the floor");
+        dep1Recep = new Room(" at the I.T. Department's reception desk. The door locks behind you. You can no longer go through this door");
+        dep1Cubicals = new Room(" at the I.T. cubicals");
+        dep1Con = new Room(" at the I.T. conference room.");
+        dep1Exec = new Room(" in the Executive Director's office of the I.T. Department");
+        dep1Admin = new Room(" in the Admin's office of the I.T. Department");
+        dep1Hallway = new Room(" in the I.T. Department's hallway");
+        dep1Elevator = new Room(" in the elevator connected to the I.T. Department's wing");
+        dep2Recep = new Room (" at the Human Resources Department's reception desk. The door locks behind you. You can no longer go through this door");
+        dep2Cubicals = new Room (" at the HR cubicals");
+        dep2Con = new Room (" at the HR conference room");
+        dep2Exec = new Room (" in the Executive Director's office of the HR Department");
+        dep2Admin = new Room (" in the Admin's office of the HR Department");
+        dep2Hallway = new Room (" in the HR Department's hallway");
+        dep2Elevator = new Room (" in the elevator connected to the HR Department's wing");
+        cafe = new Room (" in the cafeteria");
+        dep1FloorClosed = new Room (" on a closed floor. You must go back");
+        dep2FloorClosed = new Room (" on a closed floor. You must go back");
+        end = new Room (" at the exit. You have successfully escaped! Congradulations");
+        
+        // add item into room
+        start = addItemsToRoom(start, startItems);
+        dep1Recep = addItemsToRoom(dep1Recep, dep1RecepItems);
+        dep1Cubicals = addItemsToRoom(dep1Cubicals, dep1CubicalsItems);
+        dep1Con = addItemsToRoom(dep1Con, dep1ConItems);
+        dep1Exec = addItemsToRoom(dep1Exec, dep1ExecItems);
+        dep1Admin = addItemsToRoom(dep1Admin, dep1AdminItems);
+        dep1Hallway = addItemsToRoom(dep1Hallway, dep1HallwayItems);
+        dep1Elevator = addItemsToRoom(dep1Elevator, dep1ElevatorItems);
+        dep2Recep = addItemsToRoom(dep2Recep, dep2RecepItems);
+        dep2Cubicals = addItemsToRoom(dep2Cubicals, dep2CubicalsItems);
+        dep2Con = addItemsToRoom(dep2Con, dep2ConItems);
+        dep2Exec = addItemsToRoom(dep2Exec, dep2ExecItems);
+        dep2Admin = addItemsToRoom(dep2Admin, dep2AdminItems);
+        dep2Hallway = addItemsToRoom(dep2Hallway, dep2HallwayItems);
+        dep2Elevator = addItemsToRoom(dep2Elevator, dep2ElevatorItems);
+        cafe = addItemsToRoom(cafe, cafeItems);
+        dep1FloorClosed = addItemsToRoom(dep1FloorClosed, dep1FloorClosedItems);
+        dep2FloorClosed = addItemsToRoom(dep2FloorClosed, dep2FloorClosedItems);
+        end = addItemsToRoom(end, endItems);
+        
         
         // initialise room exits
         start.setExit("east", dep1Recep);
@@ -140,6 +206,18 @@ public class Game
 
         
         currentRoom = start;  // start game outside
+    }
+    
+    /**
+     * add array items to room the return room
+     */
+    private Room addItemsToRoom(Room room, Item items[])
+    {
+        for(int i = 0; i < items.length; i++)
+        {
+            room.addItem(items[i]);
+        }
+        return room;
     }
 
     /**
