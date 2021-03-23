@@ -22,7 +22,9 @@ public class Item
     }
 
     /**
-     * 
+     * Constructor for objects that set the instance variables with parameters
+     * @param description Description of the item
+     * @param weight Weight of the item
      */
     public Item(String description, int weight)
     {
@@ -30,6 +32,10 @@ public class Item
         itemWeight = weight;
     }
     
+    /**
+     * returns description of the items in the room
+     * @return description of the item with its weight
+     */
     public String getItemDescription()
     {
         String itemString = "Item Description: ";

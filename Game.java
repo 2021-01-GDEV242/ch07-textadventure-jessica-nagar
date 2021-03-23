@@ -1,8 +1,7 @@
 /**
- *  This class is the main class of the "World of Zuul" application. 
- *  "World of Zuul" is a very simple, text based adventure game.  Users 
- *  can walk around some scenery. That's all. It should really be extended 
- *  to make it more interesting!
+ *  This class is the main class of the "Work Escape" application. 
+ *  "Work Escape" is a very simple, text based adventure game.  Users 
+ *  can walk around some scenery.
  * 
  *  To play this game, create an instance of this class and call the "play"
  *  method.
@@ -11,8 +10,8 @@
  *  rooms, creates the parser and starts the game.  It also evaluates and
  *  executes the commands that the parser returns.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author  Jessica Nagar
+ * @version 2021.03.22
  */
 
 public class Game 
@@ -38,6 +37,7 @@ public class Game
         Room start, dep1Recep, dep1Cubicals, dep1Con, dep1Exec, dep1Admin, dep1Hallway, dep1Elevator, dep2Recep, dep2Cubicals, dep2Con, dep2Exec, dep2Admin,
                     dep2Hallway, dep2Elevator, cafe, dep1FloorClosed, dep2FloorClosed, end;
       
+        //create item objects
         Item startItems[] = {new Item("Nothing", 0)};
         Item dep1RecepItems[] = {new Item("Welcome Sign", 0), new Item("Bell", 0), new Item("Plant", 0)};
         Item dep1CubicalsItems[] = {new Item("Files", 10), new Item("Phone", 15)};
@@ -206,7 +206,7 @@ public class Game
         dep2FloorClosed.setExit("down", dep2Elevator);
 
         
-        currentRoom = start;  // start game outside
+        currentRoom = start;  // start game at the start
         prevRoom = null;
     }
     
@@ -317,6 +317,7 @@ public class Game
     /** 
      * Try to go in one direction. If there is an exit, enter the new
      * room, otherwise print an error message.
+     * @param command The command to be processed
      */
     private void goRoom(Command command) 
     {
@@ -357,16 +358,25 @@ public class Game
         }
     }
     
+    /**
+     * get the room description by using the look command
+     */
     private void look()
     {
         System.out.println(currentRoom.getLongDescription());
     }
     
+    /**
+     * eat a cookie by using the eat command
+     */
     private void eat()
     {
         System.out.println("You have eaten a cookie.");
     }
     
+    /**
+     * go back to the previous room by using the back command
+     */
     private void back()
     {
         currentRoom = prevRoom;
